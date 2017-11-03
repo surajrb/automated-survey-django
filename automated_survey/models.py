@@ -30,6 +30,7 @@ class Question(models.Model):
     )
 
     body = models.CharField(max_length=255)
+    expectedans = models.CharField(max_length=255)
     kind = models.CharField(max_length=255, choices=QUESTION_KIND_CHOICES)
     survey = models.ForeignKey(Survey)
 
@@ -52,9 +53,12 @@ class Question(models.Model):
 
 class QuestionResponse(models.Model):
     response = models.CharField(max_length=255)
+    confidence = models.CharField(max_length=255)
     call_sid = models.CharField(max_length=255)
     phone_number = models.CharField(max_length=255)
+    score = models.CharField(max_length=255)
     question = models.ForeignKey(Question)
+    calltime = models.CharField(max_length=255)
 
     def __str__(self):
         return '%s' % self.response
@@ -65,5 +69,9 @@ class QuestionResponse(models.Model):
                 'kind': self.question.kind,
                 'response': self.response,
                 'call_sid': self.call_sid,
+                'id': self.id,
                 'phone_number': self.phone_number,
+                'score': self.score,
+                'confidence': self.confidence,
+                'calltime': self.calltime
                 }

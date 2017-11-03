@@ -18,6 +18,7 @@ class Migration(migrations.Migration):
                 ('response', models.CharField(max_length=255)),
                 ('call_sid', models.CharField(max_length=255)),
                 ('phone_number', models.CharField(max_length=255)),
+                ('score', models.CharField(max_length=255)),
                 ('question', models.ForeignKey(to='automated_survey.Question')),
             ],
         ),

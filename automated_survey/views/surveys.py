@@ -20,7 +20,6 @@ def show_survey_results(request, survey_id):
 
     return render_to_response('results.html', context=template_context)
 
-
 @csrf_exempt
 def show_survey(request, survey_id):
     survey = Survey.objects.get(id=survey_id)
@@ -33,7 +32,7 @@ def show_survey(request, survey_id):
 
     first_question_url = reverse('question', kwargs=first_question_ids)
 
-    welcome = 'Hello and thank you for taking the %s survey' % survey.title
+    welcome = 'Hi, Candidate, Welcome to the %s , You will be asked 3 questions, You will need to answer each question in max 10 seconds, Press # key when you have finished your answer' % survey.title
     if request.is_sms:
         twiml_response = MessagingResponse()
         twiml_response.message(welcome)

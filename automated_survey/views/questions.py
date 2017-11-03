@@ -4,8 +4,7 @@ from twilio.twiml.voice_response import VoiceResponse
 from django.http import HttpResponse
 
 from automated_survey.models import Question
-from django.views.decorators.http import require_GET
-
+from django.views.decorators.http import require_POST, require_GET
 
 @require_GET
 def show_question(request, survey_id, question_id):
@@ -33,21 +32,30 @@ SMS_INSTRUCTIONS = {
     Question.NUMERIC: 'Please type a number between 1 and 10'
 }
 
-
 def voice_question(question):
     twiml_response = VoiceResponse()
-
     twiml_response.say(question.body)
-    twiml_response.say(VOICE_INSTRUCTIONS[question.kind])
-
+    twiml_response.say("Please wait for the next question after answering")
+    # twiml_response.say(VOICE_INSTRUCTIONS[question.kind])
     action = save_response_url(question)
     if question.kind == Question.TEXT:
-        twiml_response.record(
+        # twiml_response.record(
+        #     action=action,
+        #     method='POST',
+        #     max_length=6,
+        #     transcribe=True,
+        #     transcribe_callback=action
+        # )
+        twiml_response.gather(
             action=action,
             method='POST',
-            max_length=6,
-            transcribe=True,
-            transcribe_callback=action
+            input='dtmf speech',
+            language='en-IN',
+            hints='Working,capital,amount,companys,current,assets,minus,liabilities, \
+Bank,Reconciliation,Statement,prepared,reconcile,balances,cashbook,maintained,concern,periodical,intervals, \
+Depreciation,permanent,gradual,continuous,reduction,book,value,fixed',
+            timeout=10,
+            # partialResultCallback='https://requestb.in/yyekuoyy'
         )
     else:
         twiml_response.gather(action=action, method='POST')
@@ -64,3 +72,24 @@ def save_response_url(question):
     return reverse('save_response',
                    kwargs={'survey_id': question.survey.id,
                            'question_id': question.id})
+
+
+@require_GET
+def outbound_call(self):
+    from twilio.rest import Client
+    # Your Account Sid and Auth Token from twilio.com/user/account
+    account_sid = "AC75f241336a53e2f30a6686e05fae208a"
+    auth_token = "f89268cb35b36f3ec3d0c6af02707e6c"
+    client = Client(account_sid, auth_token)
+
+    call = client.calls.create(
+         to="+919211416649",
+         #to="+919711598770",
+         #to="+917506191561";
+
+         from_="+16194323662",
+         url="http://9940563c.ngrok.io/automated-survey/first-survey/"
+     )
+
+    # print(call.sid)
+    return HttpResponse("bavakoof")

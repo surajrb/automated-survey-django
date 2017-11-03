@@ -16,6 +16,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('body', models.CharField(max_length=255)),
                 ('kind', models.CharField(max_length=255)),
+                ('expectedans', models.CharField(max_length=255)),
             ],
         ),
         migrations.CreateModel(

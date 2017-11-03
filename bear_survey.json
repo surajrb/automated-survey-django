@@ -1,26 +1,20 @@
 {
   "questions": [
     {
-      "body": "What type of bear is best?",
+      "body": "What is working capital?",
       "kind": "text"
+      "expectedans": "Working capital is the amount of a company's current assets minus the amount of its current liabilities."
     },
     {
-      "body": "In a scale of 1 to 10, how cute do you find koalas?",
-      "kind": "numeric"
-    },
-    {
-      "body": "Do you think bears beat beets?",
-      "kind": "yes-no"
-    },
-    {
-      "body": "What's the relationship between Battlestar Galactica and bears?",
+      "body": "What is bank reconciliation statement?",
       "kind": "text"
+      "expectedans": "Bank Reconciliation Statement is a statement prepared to reconcile the balances of cash book maintained by the concern and pass book maintained by the bank at periodical intervals."
     },
     {
-      "body": "Do sloths qualify as bears?",
+      "body": "What is depreciation?",
       "kind": "text"
-    }
-
+      "expectedans": "Depreciation is a permanent, gradual and continuous reduction in the book value of the fixed asset."
+    },
   ],
-  "title": "About bears"
+  "title": "Genpact job portal IVR"
 }

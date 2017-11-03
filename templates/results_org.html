@@ -8,41 +8,33 @@
     <p>It appears there are no responses for this survey yet!</p>
 {% endif %}
 
-{% regroup responses|dictsortreversed:"id" by call_sid as call_sid_list %}
 <div class="col-md-8">
     <ul class="list-unstyled">
-    {% for call_sid in call_sid_list %}
+    {% for response in responses %}
         <li>
             <div class="panel panel-default">
-                {% for item in call_sid.list|dictsort:"id" %}
-                {% if forloop.first %}
                 <div class="panel-heading">
-                    <b>Call SID:</b> {{ item.call_sid }}
+                    Response from: {{ response.call_sid }}
+                    with number {{ response.phone_number }}
                 </div>
-                <div class="panel-heading">
-                    <b>Response from:</b> {{ item.phone_number }} <b>Call Time:</b> {{ item.calltime }}
-                </div>
-                {% endif %}
                 <div class="panel-body">
                     <ol class="list-group">
-                        <li class="list-group-item"><b>Question:</b> {{ item.body }} </li>
+                        <li class="list-group-item">Question: {{ response.body }} </li>
                         <!-- li class="list-group-item">Answer type: {{ response.kind }} </li -->
-                        <li class="list-group-item"> <b>Answer:</b>
-                            {% if item.kind == 'voice' %}
+                        <li class="list-group-item"> Answer:
+                            {% if response.kind == 'voice' %}
                                 <div class="voice-response">
                                     <span class="voice-response-text">Response:</span>
                                     <i class="fa fa-play-circle fa-2x play-icon"></i>
                                     <audio class="voice-response" src="{{ response.response }}"></audio>
                                 </div>
                             {% else %}
-                                {{ item.response }}
+                                {{ response.response }}
                             {% endif %}
-                        <li class="list-group-item"><b>Confidence (Speach To Text) %  :</b> {{ item.confidence }} </li>
                         </li>
-                        <li class="list-group-item"><b>Answer Score %:</b> {{ item.score }} </li>
+                        <li class="list-group-item">Score: {{ response.score }} </li>
                     </ol>
                 </div>
-                {% endfor %}
             </div>
         </li>
     {% endfor %}
