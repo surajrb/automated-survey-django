@@ -8,12 +8,12 @@
     {
       "body": "What is bank reconciliation statement?",
       "kind": "text",
-      "expectedans": "Bank Reconciliation Statement is a statement prepared to reconcile the balances of cash book maintained by the concern and pass book maintained by the bank at periodical intervals."
+      "expectedans": "Bank Reconciliation Statement is a statement prepared to reconcile the balances of cash book maintained by the concern and pass book maintained by the bank at regular period."
     },
     {
       "body": "What is depreciation?",
       "kind": "text",
-      "expectedans": "Depreciation is a permanent, gradual and continuous reduction in the book value of the fixed asset."
+      "expectedans": "Depreciation is a permanent, gradual and continuous decrease in the book value of the fixed asset."
     }
   ],
   "title": "Genpact job portal IVR"

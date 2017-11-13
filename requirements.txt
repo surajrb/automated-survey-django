@@ -16,6 +16,6 @@ twilio==6.8.1
 virtualenv==13.0.3
 wheel==0.24.0
 whitenoise==2.0.3
-NumPy=1.8.2
-SciPy=0.13.3
-scikit-learn=0.19.1
+NumPy==1.8.2
+SciPy==0.13.3
+scikit-learn==0.19.1

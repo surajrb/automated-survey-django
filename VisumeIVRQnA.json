@@ -1,0 +1,20 @@
+{
+  "questions": [
+    {
+      "body": "What is working capital?",
+      "kind": "text"
+      "expectedans": "Working capital is the amount of a company's current assets minus the amount of its current liabilities."
+    },
+    {
+      "body": "What is bank reconciliation statement?",
+      "kind": "text"
+      "expectedans": "Bank Reconciliation Statement is a statement prepared to reconcile the balances of cash book maintained by the concern and pass book maintained by the bank at periodical intervals."
+    },
+    {
+      "body": "What is depreciation?",
+      "kind": "text"
+      "expectedans": "Depreciation is a permanent, gradual and continuous reduction in the book value of the fixed asset."
+    },
+  ],
+  "title": "Genpact job portal IVR"
+}

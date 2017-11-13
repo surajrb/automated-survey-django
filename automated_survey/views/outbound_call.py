@@ -11,12 +11,14 @@ def outbound_call():
     client = Client(account_sid, auth_token)
 
     call = client.calls.create(
-        to="+919211416649",
+        #to="+919811101379",
+        #to="+919211416649",
         #to="+919711598770",
         #to="+917506191561";
 
+
         from_="+16194323662",
-        url="http://9940563c.ngrok.io/automated-survey/first-survey/"
+        url="http://89d8fc06.ngrok.io/automated-survey/first-survey/"
     )
 
     print(call.sid)
